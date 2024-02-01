@@ -1,0 +1,105 @@
+.body{
+    height: 100vh;
+    width: 100vw;
+}
+
+  .loginText{
+    margin-top: 5%;
+    text-align: center;
+    color: #0f1e57;
+}
+
+  .labelInput{
+    justify-content: center;
+    color: #0f1e57;
+    margin: 1vh 0 1vh 0;
+    font-size: 1.2rem;
+  }
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+#button{
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+  }
+
+  .btn{
+    margin-top: 3vh;
+    background-color: #8399f2;
+    color: whitesmoke;
+    border-color: #8399f2;
+  }
+  
+  .card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 120vh;
+    height: 90vh;
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  .card-container .solution_card {   /*form login*/
+    background: #fff;
+    box-shadow: 0 2px 4px 0 rgba(136, 144, 195, 0.2),
+      0 5px 15px 0 rgba(37, 44, 97, 0.15);
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+    justify-content: center;
+  }
+  
+  .card-container .login_size {
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    height: 40%;
+    padding: 5% 10% 5% 10%;
+    text-align: start;
+  }
+  
+    .card-container .search_size {
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 70%;
+    height: 40%;
+    padding: 5% 10% 5% 10%;
+    text-align: start;
+  }
+
+  .card-container .solution_card:before { 
+    content: "";
+    position: fixed;
+    background: rgb(85 108 214 / 5%);
+    width: 300px;
+    height: 900px;
+    z-index: -1;
+    transform: rotate(50deg);
+    right: -56px;
+    top: 20%;
+    border-radius: 35px;
+  }
+
+  .color_bubble {   
+    position: absolute;
+    background: rgb(54 81 207 / 15%);
+    width: 140rem;
+    height: 140rem;
+    left: 0;
+    right: 0; 
+    top: 16rem;
+    border-radius: 50%;
+    left: -18rem;
+    top: 100%;  
+  }
+
+  .card-container .solution_card:hover .hover_color_bubble {  /*dimensioni login*/
+    top: 0rem;
+  }

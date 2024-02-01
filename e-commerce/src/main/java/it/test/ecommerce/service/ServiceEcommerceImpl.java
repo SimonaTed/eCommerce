@@ -13,38 +13,47 @@ import it.test.ecommerce.repository.QueryRepository;
 @Service
 public class ServiceEcommerceImpl implements ServiceECommerce {
 
-	
 	@Autowired
 	QueryRepository queryrepository;
-	
+
 	@Autowired
 	HtmlRepository htmlrepository;;
-	
+
 	@Override
-	public List<QueryEntity> findQuerybySigla(String sigla){
-		return (List<QueryEntity>)queryrepository.findBySiglaContainingIgnoreCase(sigla);
+	public List<QueryEntity> findQuerybySigla(String sigla) {
+		return (List<QueryEntity>) queryrepository.findBySiglaContainingIgnoreCase(sigla);
 	}
 
 	@Override
-	public List<HtmlEntity> findTotalebySigla(String sigla){
+	public List<HtmlEntity> findTotalebySigla(String sigla) {
 		return (List<HtmlEntity>) htmlrepository.findBySiglaContainingIgnoreCase(sigla);
 	}
-	
-	
-	@Override
-	 public List<Object> trovati(String sigla) {
-		 
-	        List<Object> risultati = new ArrayList<>();
-	        
-	        List<QueryEntity> queries = queryrepository.findBySiglaContainingIgnoreCase(sigla);
-	        risultati.addAll(queries);
-	        
-	     
-	        List<HtmlEntity> htmls = htmlrepository.findBySiglaContainingIgnoreCase(sigla);
-	        risultati.addAll(htmls);
 
-	        return risultati;
-	    }
-	
-	
+	@Override
+	public List<Object> trovatiBySigla(String sigla) {
+
+		List<Object> risultati = new ArrayList<>();
+
+		List<QueryEntity> queries = queryrepository.findBySiglaContainingIgnoreCase(sigla);
+		risultati.addAll(queries);
+
+		List<HtmlEntity> htmls = htmlrepository.findBySiglaContainingIgnoreCase(sigla);
+		risultati.addAll(htmls);
+
+		return risultati;
+	}
+
+	@Override
+	public List<Object> findAllItems() {
+		List<Object> all = new ArrayList<Object>();
+
+		List<QueryEntity> allQueries = queryrepository.findAll();
+		all.addAll(allQueries);
+
+		List<HtmlEntity> allHtml = htmlrepository.findAll();
+		all.addAll(allHtml);
+
+		return all;
+	}
+
 }

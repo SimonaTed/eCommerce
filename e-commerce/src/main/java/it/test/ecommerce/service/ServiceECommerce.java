@@ -12,7 +12,9 @@ public interface ServiceECommerce {
 
 	List<HtmlEntity> findTotalebySigla(String sigla);
 
-	List<Object> trovati(String sigla);
+	List<Object> trovatiBySigla(String sigla);
+	
+	List<Object> findAllItems();
 
 
 

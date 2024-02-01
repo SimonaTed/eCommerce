@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Risultati Ricerca</title>
+	<link rel="stylesheet" th:href="@{../style.css}" />
+	<link rel="stylesheet" th:href="@{../bootstrap/css/bootstrap.min.css}">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+			aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+			<a class="navbar-brand mb-0 h1">Modus Lab</a>
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+					<a class="nav-link" href="/ricerca">Home <span class="sr-only">(current)</span></a>
+				</li>
+
+			</ul>
+		</div>
+	</nav>
+
+	<div class="table-responsive" th:if="${not #lists.isEmpty(trovati)}">
+		<table class="table table-hover table-borderless">
+			<thead>
+				<tr>
+					<th>Sigla</th>
+					<th>Path</th>
+					<th>File</th>
+				</tr>
+			</thead>
+			<tbody class="table-group-divider">
+				<tr th:each="risultato :${trovati}">
+					<td th:text="${risultato.sigla}"></td>
+					<td th:text="${risultato.path}"></td>
+					<td th:text="${risultato.file}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a href="/ricerca" class="btn btn-primary">Nuova ricerca</a>
+	</div>
+
+	<div th:if="${#lists.isEmpty(trovati)}">
+		<div class="container-fluid">
+			<div class="card-container d-flex justify-content-center">
+				<div class="solution_card login_size">
+					
+					<div class="loginForm justify-content-center">
+						<div>
+							<h3 class="loginText">Spiacente!</h3>
+						</div>
+
+						<div class="form-group loginBoxes">
+							<p class="labelInput">Nessun risultato trovato per i parametri di ricerca inseriti!</p>
+
+							<a href="/ricerca" id="button" class="btn">
+								Nuova Ricerca
+							</a>
+						</div>
+
+					</div>
+					<div class="color_bubble"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
