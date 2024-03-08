@@ -92,7 +92,7 @@ public class ControllerCarello {
 	  public static class OrderForm {
 		  
 
-	        private List<OrdineProdottoDTO> productOrders;//credo serva con il new ?
+	        private List<OrdineProdottoDTO> productOrders;
 
 	       /* public OrderForm(Prodotto p, int i) {
 	        	

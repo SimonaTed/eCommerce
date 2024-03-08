@@ -7,7 +7,7 @@ CREATE TABLE PRODOTTO (
     PRIMARY KEY (idProdotto)
 );
 
-INSERT INTO PRODOTTO(NOME,PREZZO,PATH,DESCRIZIONE) VALUES ('prova',1.85,'provapath1','query per ricerca');
+INSERT INTO PRODOTTO(NOME,PREZZO,PATH,DESCRIZIONE) VALUES ('prova',1.85,'../download/prova.txt','query per ricerca');
 INSERT INTO PRODOTTO(NOME,PREZZO,PATH,DESCRIZIONE) VALUES ('jpa',1.85,'provapath1','query per ricerca');
 INSERT INTO PRODOTTO(NOME,PREZZO,PATH,DESCRIZIONE) VALUES ('html',1.85,'provapath1','query per ricerca');
 INSERT INTO PRODOTTO(NOME,PREZZO,PATH,DESCRIZIONE) VALUES ('query',1.85,'provapath1','query per ricerca');

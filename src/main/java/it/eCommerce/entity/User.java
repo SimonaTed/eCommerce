@@ -52,6 +52,9 @@ public class User {
              inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 
+  //una relazione many to many con prodotti credo che possa funzionare
+  
+  
   public User() {
   }
 

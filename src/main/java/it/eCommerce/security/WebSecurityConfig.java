@@ -88,6 +88,7 @@ public PasswordEncoder passwordEncoder() {
 //  http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //}
 
+
 @Bean
 public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
   http.csrf(csrf -> csrf.disable())
@@ -96,12 +97,16 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       .authorizeHttpRequests(auth -> 
         auth.requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/test/**").permitAll()
-            .requestMatchers("/h2-ui/**").permitAll()//aggiunto io
+            .requestMatchers("/scaricaFile/**").permitAll()//aggiunte io per utilizzarle forse anche h2
+            .requestMatchers("/ecommerceTotale/**").permitAll()
+            .requestMatchers("/h2-console/**").permitAll()//anche così con la modifica sotto non permette accesso a h2
             .anyRequest().authenticated()
       );
   
 // fix H2 database console: Refused to display ' in a frame because it set 'X-Frame-Options' to 'deny'
-  http.headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()));
+  //ho provato sia disable che deny ma niente (sameOrigin originale)
+   http.headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()));
+
   
   http.authenticationProvider(authenticationProvider());
 
@@ -109,6 +114,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
   
   return http.build();
 }
+
 
 
 }
